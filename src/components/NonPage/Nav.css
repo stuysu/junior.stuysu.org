@@ -1,16 +1,16 @@
 .head-nav {
-  z-index:10;
+  z-index: 1000000;
 }
 
 .nav-container {
   display: flex;
-  width: 90vw;
   height: 5vh;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  margin: auto;
+  margin-top: 30px;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 .decorative {
@@ -28,9 +28,15 @@
   justify-content: space-between;
 }
 
+@media (max-width: 940px) {
+  .menu {
+    width: 60vw;
+  }
+}
+
 .nav-menu-item {
   /* text */
-  font-family: "mixta-sharp";
+  font-family: "ivymode";
   font-size: 1rem;
   font-style: normal;
   text-decoration: none;
@@ -38,13 +44,12 @@
   font-weight: 500;
   line-height: normal;
   list-style: none;
-  width:auto;
+  width: auto;
 }
 
 .nav-menu-item:hover {
   transform: scale(1.05);
 }
-
 
 .juni-logo-container {
   display: flex;
@@ -56,14 +61,57 @@
   display: flex;
 }
 
-.item-menu-text {
-  text-align:center;
+.mobile-dropdown {
+  display: none;
 }
 
-.period-name {
 
-}
+@media (max-width: 795px) {
+  .menu {
+    display: none;
+  }
+  .mobile-dropdown {
+    display: inline-block;
+    z-index: 1000;
+  }
 
-.period-time {
-  
+  .dropdown-content {
+    display:none;
+    position: fixed;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 1000;
+  }
+  .dropdown-content a:active {
+    background-color: #ddd;
+  }
+
+  .mobile-dropdown:active .dropdown-content {
+    display: inline-block;
+  }
+
+
+  .toggle-menu {
+    display:inline-block;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  /* .movile-dropdown:active .dropbtn {
+    background-color: #3e8e41;
+  }  */
+
+  .show {
+    display:inline-block;
+  }
+
+
 }

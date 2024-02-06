@@ -1,6 +1,6 @@
 .meet-team-container {
   text-align: center;
-  margin-top: 20px;
+  padding: 5vw;
   height: 70vh;
   width: 100vw;
   display: flex;
@@ -8,15 +8,26 @@
   justify-content: center;
 }
 
-.meet, .the-team {
+.meet,
+.the-team {
   display: inline-block;
-  color: #051E4F;
-  font-family: "Mixta-Sharp";
-  font-weight: 300;
-  line-height: 164.32px;
+  color: #051e4f;
+  font-family: "ivymode";
+  line-height: 0.8em;
   word-wrap: break-word;
-  font-size: 208px; /* Consolidated font-size */
-  margin: 0 10px;
+  font-size: 20vw;
+  transition: transform 0.5s;
+  will-change: transform;
+}
+
+.meet {
+  font-weight: 300;
+  text-align: left;
+}
+
+.the-team {
+  font-weight: 400;
+  text-align: right;
 }
 
 @keyframes slideInFromLeft {
@@ -37,38 +48,32 @@
   }
 }
 
-.the-team {
-  margin-right: -10000vw;
-}
-
-.meet {
-  animation: 1s ease-out 0s 1 slideInFromLeft;
-  margin-left: -20vw;
-}
-
-.the-team {
-  animation: 1s ease-out .0s 1 slideInFromRight;
-  margin-right: -20vw;
+@media (max-width: 975px) {
+  .the-team {
+    font-size: 150px;
+    margin-right: 5vw;
+  }
 }
 
 .box {
-  background-color: #0C2B56;
-  color: #FAE5E2;
+  background-color: #0c2b56;
+  color: #fae5e2;
   font-size: 96px;
   white-space: nowrap;
 }
 
 .box-text {
   transform: rotate(180deg);
-  color: #FBE4DF;
+  color: #fbe4df;
   font-size: 128px;
-  font-family: Neue Haas Grotesk Display Pro;
+  font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 350;
-  line-height: 108.80px;
+  line-height: 108.8px;
   word-wrap: break-word;
 }
 
-.subgroup-container, .person-container {
+.subgroup-container,
+.person-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,7 +98,8 @@
 
 .description {
   font-size: 0.9rem;
-  color: #051E4F;
+  max-width: 25vw;
+  color: #051e4f;
   justify-self: start;
   text-align: left;
 }
@@ -103,7 +109,15 @@
   flex-direction: row;
 }
 
+/* add mobile styling to flex column for .d_type_box */
+@media (max-width: 768px) {
+  .d_type_box {
+    flex-direction: column;
+  }
+}
+
 .people-page-body img {
+  border-radius: 5px;
   max-width: 25vw;
 }
 
@@ -148,8 +162,10 @@
 }
 
 /* Set the animations to be smoother for the img inside .image_box */
+
+/* ! Removes Rounding */
 .image_box img {
-  transition: transform cubic-bezier(.5, .22, 0.22, 1);
+  transition: transform cubic-bezier(0.5, 0.22, 0.22, 1);
 }
 
 /* Chiefs Section - Applying similar structure as Presidents */
@@ -174,7 +190,7 @@
   height: fit-content;
   justify-self: end;
   margin: 10px;
-  margin-right:0;
+  margin-right: 0;
   padding: 5px;
   padding-left: 15vw;
   padding-top: 20px;
@@ -183,20 +199,20 @@
 
 .chiefs-box-text {
   transform: rotate(0deg);
-  color: #FBE4DF;
+  color: #fbe4df;
   font-size: 128px;
-  font-family: Neue Haas Grotesk Display Pro;
+  font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 350;
-  line-height: 108.80px;
+  line-height: 108.8px;
   word-wrap: break-word;
 }
 
 .chiefs-box-text i {
-  color: #FBE4DF;
+  color: #fbe4df;
   font-size: 128px;
-  font-family: Mixta Pro;
+  font-family: ivymode;
   font-weight: 350;
-  line-height: 108.80px;
+  line-height: 108.8px;
   word-wrap: break-word;
 }
 
@@ -255,4 +271,80 @@
   display: grid;
   grid-template-columns: 40vw 40vw;
   margin-bottom: 50px;
+}
+/* ! remember to add this back again, not working for some reason */
+.to-fly-from-left {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.to-fly-from-right {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(+100%);
+  transition: all 1s;
+}
+
+.to-fade-in {
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 1s;
+}
+
+.show {
+  filter: blur(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* on mobile, configure d_type_box and subgroup-containerD to use 100% of the width and instead of rows, do columns */
+@media (max-width: 768px) {
+  .d_type_box {
+    grid-template-columns: 100vw;
+    grid-template-rows: auto auto;
+  }
+
+  .subgroup-containerD {
+    grid-template-columns: 100vw;
+    grid-template-rows: auto auto;
+    margin-bottom: 50px;
+  }
+
+  .subgroup-containerD div {
+    padding-bottom: 20px;
+  }
+
+  /* make director in the center (horizontally) of their column */
+  .director {
+    justify-self: start;
+    /* make them occupy more space on mobile */
+  }
+
+  .director img {
+    max-width: 50vw;
+    height: auto;
+  }
+
+  .person-container {
+    max-width: 80vw;
+  }
+
+  .description {
+    max-width: 50vh;
+  }
+
+  .people-page-body .directors img {
+    border-radius: 15px;
+  }
+
+  .emily {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+
+    align-self: start;
+    padding-left: 0px;
+  }
 }
